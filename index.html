@@ -412,6 +412,56 @@
   .reveal-delay-3 { transition-delay: 0.3s; }
   .reveal-delay-4 { transition-delay: 0.4s; }
 
+   /* ── CONTACT FORM ── */
+  #contacto { background: none; }
+
+  .contact-form {
+    margin-top: 56px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px;
+    backdrop-filter: blur(16px);
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 16px 18px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s;
+  }
+
+  .contact-form textarea {
+    resize: vertical;
+    margin-bottom: 24px;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: var(--text-muted);
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: rgba(34,201,122,0.35);
+    box-shadow: 0 0 24px rgba(34,201,122,0.08);
+  }
+
+ 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     #navbar { padding: 16px 24px; }
@@ -426,7 +476,11 @@
   @media (max-width: 600px) {
     h1 { font-size: 2.4rem; }
     .hero-ctas { flex-direction: column; align-items: center; }
-    .btn-primary, .btn-ghost { width: 100%; max-width: 320px; text-align: center; }
+    .btn-primary, .btn-ghost { width: 100%; max-width: 320px; text-align: center; }\
+
+       .form-grid { grid-template-columns: 1fr; }
+    .contact-form { padding: 28px; }
+   
   }
 </style>
 </head>
@@ -645,10 +699,38 @@
 <!-- FINAL CTA -->
 <div id="final-cta">
   <h2 class="reveal">¿Listo para dejar<br>de perder tiempo?</h2>
-  <a href="#" class="btn-primary reveal" style="font-size:1.1rem;padding:18px 48px">
+  <a href="#contacto" class="btn-primary reveal" style="font-size:1.1rem;padding:18px 48px">
+  Contactanos →
+</a>
     Contactanos →
   </a>
 </div>
+
+ <!---FORM -->
+
+ <!-- CONTACT FORM -->
+<section id="contacto">
+  <p class="section-label reveal">Contacto</p>
+  <h2 class="reveal">Contanos qué necesitás automatizar</h2>
+  <p class="section-intro reveal">Dejanos tus datos y te contactamos para coordinar una demo.</p>
+
+  <form class="contact-form reveal" action="https://formspree.io/f/xnjwblor" method="POST">
+    <div class="form-grid">
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <input type="email" name="email" placeholder="Correo electrónico" required>
+    </div>
+
+    <div class="form-grid">
+      <input type="tel" name="telefono" placeholder="WhatsApp o teléfono" required>
+      <input type="text" name="empresa" placeholder="Nombre de la empresa">
+    </div>
+
+    <textarea name="mensaje" rows="5" placeholder="¿Qué te gustaría automatizar?" required></textarea>
+
+    <button type="submit" class="btn-primary">Enviar solicitud →</button>
+  </form>
+</section>
+ 
 
 <!-- FOOTER -->
 <footer>
